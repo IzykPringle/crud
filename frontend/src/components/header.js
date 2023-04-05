@@ -5,7 +5,7 @@ import { appContext } from '../App';
 function Header () {
 let navigate = useNavigate();
 
-    const { loggedIn, setLoggedIn } = useContext(appContext)
+    const { loggedIn, setLoggedIn } = useContext(appContext);
     let loginButton = <button onClick={() => setLoggedIn(true)}>Login</button>
     let signUpButton = <button onClick={() => navigate('/SignUp')}>Sign Up</button>
 
