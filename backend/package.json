@@ -9,8 +9,8 @@
     "spinup1": "bash -c \"docker run --name cruddb -e=POSTGRES_PASSWORD=docker -d -p 8081:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data postgres\"",
     "spinup2": "docker exec -it cruddb psql -U postgres -c \"CREATE DATABASE cruddb;\"",
     "spinup3": "npx knex migrate:latest && npx knex seed:run",
-    "backendspinup": "npm run spinup1 && npm run spinup2 && npm run spinup3 && npm start",
-    "docker-reset": "docker exec -it cruddb psql -U postgres -c \"DROP DATABASE cruddb;\"",
+    "backendspinup": "npm run spinup1 && sleep 10 && npm run spinup2 && sleep 10 && npm run spinup3 && npm start",
+    "dockerreset": "docker exec -it cruddb psql -U postgres -c \"DROP DATABASE cruddb;\"",
     "psql": "docker exec -it cruddb psql -U postgres"
   },
   "author": "Izyk",
