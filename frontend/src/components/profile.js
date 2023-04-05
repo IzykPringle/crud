@@ -11,10 +11,12 @@ function Profile () {
         Password:
         <button>Edit</button>
         <button>Delete Account</button>
+        My Items:
 
+
+        Add New Item:
         
-        
-        
+        <button>Add Item</button>
         
         
         </>

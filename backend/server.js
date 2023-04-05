@@ -11,10 +11,16 @@ const port = 8080;
 app.use(cors());
 
 app.get('/', (req, res) => {
-    db
+    db('items')
     .select('*')
-    .from('items')
     .then(data => res.json(data))
+})
+
+app.post('/signup', (req, res) => {
+    db('users')
+    .insert(req.body)
+    .then(response => res.json({message: 'New User Added!'}))
+    .catch(err =>res.json({message: 'no'}))
 })
 
 
