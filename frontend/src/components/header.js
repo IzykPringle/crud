@@ -11,7 +11,7 @@ let navigate = useNavigate();
 
 if (loggedIn) {
 loginButton = <button onClick={() => setLoggedIn(false)}>Logout</button>
-signUpButton = <button onClick={() => setLoggedIn(true)}>My Profile</button>
+signUpButton = <button onClick={() => navigate('/myprofile')}>My Profile</button>
 }
 
 
