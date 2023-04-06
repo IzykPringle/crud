@@ -4,7 +4,7 @@ import { appContext } from '../App';
 
 function Profile() {
     let navigate = useNavigate();
-    const { items, user, setDetailItem } = useContext(appContext);
+    const { items, user, setDetailItem, setItems } = useContext(appContext);
     const [description, setDescription] = useState();
     const [itemname, setItemName] = useState();
     const [quantity, setQuantity] = useState();
@@ -13,12 +13,14 @@ function Profile() {
 
     function addItem() {
         let newItem = { userid: user[0].id, itemname: itemname, description: description, quantity: quantity };
-        fetch('http//localhost:8080/additem', {
+        fetch('http://localhost:8080/additem', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newItem)
         })
             .then(alert(`New item added!`))
+            .then(res => res.json())
+  .then(data => setItems(...items, data))
     }
 
 

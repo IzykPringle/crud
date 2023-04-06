@@ -33,6 +33,30 @@ app.post('/signup', (req, res) => {
         .catch(err => res.json({ message: 'no' }))
 })
 
+app.post('/additem', (req, res) => {
+    db('items')
+        .insert(req.body)
+        .then ( db('items')
+            .select('*')
+            .where('userid', req.body.userid)
+            .where('itemname', req.body.itemname)
+            .where('description', req.body.description)
+            .where('quantity', req.body.quantity)
+            .then(data => res.json(data))
+        )
+        .catch(err => res.json({ message: 'no' }))
+})
+
+
+
+app.delete('/itemdetails', (req,res) => {
+    db('items')
+    .del()
+    .where('id', req.body.id)
+    .then(response => res.json({ message: 'Item deleted!' }))
+        .catch(err => res.json({ message: 'no' }))
+})
+
 
 
 
