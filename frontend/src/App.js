@@ -13,7 +13,7 @@ function App() {
 let profileRoute = '';
 let signupRoute = <Route path='/signup' element={<SignUp/>}/>
 let homeRoute = <Route path='/' element={<Home/>}/>
-let itemDetailsRoute = '';
+let itemDetailsRoute = <Route path='/itemdetails' element={<ItemDetails/>}/>;
 const [loggedIn, setLoggedIn] = useState(false);
 const [items, setItems] = useState([]);
 const [user, setUser] = useState();
@@ -28,13 +28,12 @@ useEffect(() => {
 
 if (loggedIn) {
   profileRoute = <Route path='/myprofile' element={<Profile/>}/>;
-  itemDetailsRoute = <Route path='/itemdetails' element={<ItemDetails/>}/>;
   signupRoute = '';
 }
 
   return (
     <>
-    <appContext.Provider value={{loggedIn, setLoggedIn, items, user, setUser}}>
+    <appContext.Provider value={{loggedIn, setLoggedIn, items, user, setUser, detailItem, setDetailItem}}>
     <Header/>
     <Routes>
 {signupRoute}
