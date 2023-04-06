@@ -1,0 +1,6 @@
+{
+    "scripts": {
+        "startfrontend": "cd frontend && npm start",
+        "startbackend": "nodemon ./backend/server.js"
+    }
+}

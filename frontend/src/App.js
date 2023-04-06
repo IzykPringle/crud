@@ -15,6 +15,7 @@ let signupRoute = <Route path='/signup' element={<SignUp/>}/>
 let homeRoute = <Route path='/' element={<Home/>}/>
 const [loggedIn, setLoggedIn] = useState(false);
 const [items, setItems] = useState([]);
+const [user, setUser] = useState();
 
 useEffect(() => {
   fetch('http://localhost:8080')
@@ -30,7 +31,7 @@ if (loggedIn) {
 
   return (
     <>
-    <appContext.Provider value={{loggedIn, setLoggedIn, items}}>
+    <appContext.Provider value={{loggedIn, setLoggedIn, items, user, setUser}}>
     <Header/>
     <Routes>
 {signupRoute}
