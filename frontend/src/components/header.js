@@ -5,15 +5,21 @@ import { appContext } from '../App';
 function Header() {
     let navigate = useNavigate();
 
-    const { loggedIn, setLoggedIn, setUser } = useContext(appContext);
+    const { loggedIn, setLoggedIn, user, setUser } = useContext(appContext);
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
     let loginButton = <button onClick={() => login()}>Login</button>
     let signUpButton = <button onClick={() => navigate('/SignUp')}>Sign Up</button>
+    let welcomMessage = '';
+    let loginField = <input id='login' placeholder='username:' type='text' onChange={(e) => setUsername(e.target.value)} />;
+    let passwordField = <input id='login' placeholder='password:' type='password' onChange={(e) => setPassword(e.target.value)} />;
 
     if (loggedIn) {
-        loginButton = <button onClick={() => [setLoggedIn(false), setUser([])]}>Logout</button>
-        signUpButton = <button onClick={() => navigate('/myprofile')}>My Profile</button>
+        loginButton = <button onClick={() => [setLoggedIn(false), setUser([])]}>Logout</button>;
+        signUpButton = <button onClick={() => navigate('/myprofile')}>My Profile</button>;
+        welcomMessage = <div>{`Welcome ${user[0].firstname}!`} </div>;
+        loginField = '';
+        passwordField = '';
     }
 
 
@@ -40,10 +46,11 @@ function Header() {
 
     return (
         <>
-            <div onClick={() => navigate('/')}>Food Viewer</div>
+            <div onClick={() => navigate('/')}>Grocery Stock Galore!</div>
             <button onClick={() => navigate('/')}>Home</button>
-            username<input id='login' type='text' onChange={(e) => setUsername(e.target.value)} />
-            password<input id='login' type='password' onChange={(e) => setPassword(e.target.value)} />
+            {welcomMessage}
+            {loginField}
+            {passwordField}
             {loginButton}
             {signUpButton}
             <input type='search' />
