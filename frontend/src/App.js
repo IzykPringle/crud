@@ -1,21 +1,23 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
-import {Routes, Route, useNavigate} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 import Header from './components/header';
 import SignUp from './components/signup';
 import Profile from './components/profile';
 import Home from './components/home';
+import ItemDetails from './components/itemdetails';
 
 export const appContext = React.createContext();
 
 function App() {
-let navigate = useNavigate();
 let profileRoute = '';
 let signupRoute = <Route path='/signup' element={<SignUp/>}/>
 let homeRoute = <Route path='/' element={<Home/>}/>
+let itemDetailsRoute = '';
 const [loggedIn, setLoggedIn] = useState(false);
 const [items, setItems] = useState([]);
 const [user, setUser] = useState();
+const [detailItem, setDetailItem] = useState([]);
 
 useEffect(() => {
   fetch('http://localhost:8080')
@@ -25,7 +27,8 @@ useEffect(() => {
 }, [])
 
 if (loggedIn) {
-  profileRoute = <Route path='/myprofile' element={<Profile/>}/>
+  profileRoute = <Route path='/myprofile' element={<Profile/>}/>;
+  itemDetailsRoute = <Route path='/itemdetails' element={<ItemDetails/>}/>;
   signupRoute = '';
 }
 
@@ -37,6 +40,7 @@ if (loggedIn) {
 {signupRoute}
 {profileRoute}
 {homeRoute}
+{itemDetailsRoute}
 
 
 

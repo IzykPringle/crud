@@ -15,7 +15,7 @@ function Header() {
     let passwordField = <input id='login' placeholder='password:' type='password' onChange={(e) => setPassword(e.target.value)} />;
 
     if (loggedIn) {
-        loginButton = <button onClick={() => [setLoggedIn(false), setUser([])]}>Logout</button>;
+        loginButton = <button onClick={() => [setLoggedIn(false), setUser([]), navigate('/')]}>Logout</button>;
         signUpButton = <button onClick={() => navigate('/myprofile')}>My Profile</button>;
         welcomMessage = <div>{`Welcome ${user[0].firstname}!`} </div>;
         loginField = '';

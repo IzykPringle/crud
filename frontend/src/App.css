@@ -35,3 +35,38 @@
   justify-content: center;
   justify-items: center;
 }
+
+#profilepagewrapper {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+#myitems {
+  grid-column-start: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid;
+  border-radius: 5px;
+  margin: 2px;
+}
+
+#profilewrapper {
+  grid-column-start: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid;
+  border-radius: 5px;
+  margin: 2px;
+}
+
+#newitemwrapper {
+  grid-column-start: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid;
+  border-radius: 5px;
+  margin: 2px;
+}
