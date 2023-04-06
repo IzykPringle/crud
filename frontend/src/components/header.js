@@ -5,21 +5,20 @@ import { appContext } from '../App';
 function Header() {
     let navigate = useNavigate();
 
-    const { loggedIn, setLoggedIn } = useContext(appContext);
+    const { loggedIn, setLoggedIn, setUser } = useContext(appContext);
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
     let loginButton = <button onClick={() => login()}>Login</button>
     let signUpButton = <button onClick={() => navigate('/SignUp')}>Sign Up</button>
 
     if (loggedIn) {
-        loginButton = <button onClick={() => setLoggedIn(false)}>Logout</button>
+        loginButton = <button onClick={() => [setLoggedIn(false), setUser([])]}>Logout</button>
         signUpButton = <button onClick={() => navigate('/myprofile')}>My Profile</button>
     }
 
 
     function login() {
         let user = { username: username, password: password };
-        console.log(user)
         fetch('http://localhost:8080/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -32,7 +31,8 @@ function Header() {
                     alert('user not found')
                 } else {
                     setLoggedIn(true)
-                    alert(`Welcome back ${username}!`)
+                    setUser(data)
+                    alert(`Welcome back ${data[0].firstname}!`)
                 }
             })
     }
