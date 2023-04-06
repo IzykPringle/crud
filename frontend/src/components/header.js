@@ -48,21 +48,20 @@ function Header() {
     return (
         <>
             <div id='headercontainer'>
-                <div id='homebutton'> <button onClick={() => navigate('/')}>Home</button> </div>
-                <div id='logo' onClick={() => navigate('/')}>Grocery Stock Galore!</div>
-                <div id='logincontainer'>
-                    <div>  {welcomMessage}
-                        {loginField}
-                        {loginButton}
-                    </div>
-                    <div>
-                        {passwordField}
-                        {signUpButton}
+                <div>
+                    <div id='homebutton'> <button onClick={() => navigate('/')}>Home</button> </div> <br></br>
+                    <div id='search'>
+                        <input type='search' />
+                        <button>Search</button>
                     </div>
                 </div>
-                <div id='search'>
-                    <input type='search' />
-                    <button>Search</button>
+                <div id='logo'>
+                    <h2 onClick={() => navigate('/')}>Grocery Stock Galore!</h2>
+                </div>
+                <div id='logincontainer'>
+                    <div> {welcomMessage} {loginField} </div>
+                    {passwordField}
+                    <div> {loginButton} {signUpButton} </div>
                 </div>
 
             </div>

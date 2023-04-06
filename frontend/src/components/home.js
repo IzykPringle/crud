@@ -13,7 +13,7 @@ function Home() {
             <div id="itemcontainer">
 
                     {items !== undefined ? items.map((item) => <div id="itembox" key={item.id} onClick={() => [setDetailItem(item), navigate('/itemdetails')]}>
-                    <div> {item.itemname} </div> <br></br>
+                    <h4> {item.itemname} </h4> <br></br>
                     <div> {item.description.length > 100 ? item.description.substring(0, 100) + '...' : item.description} </div> <br></br>
                     <div> In Stock: {item.quantity} </div>
                 </div>) : ''}
