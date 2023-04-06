@@ -23,3 +23,15 @@
   background-color: rgba(62, 62, 113, 0.332);
   text-align: center;
 }
+
+#headercontainer {
+  height: 100px;
+  margin-bottom: 10px;
+  border: 2px solid grey;
+  background-color: rgba(38, 38, 38, 0.521);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
