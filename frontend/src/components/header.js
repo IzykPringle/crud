@@ -39,6 +39,7 @@ function Header() {
                     setLoggedIn(true)
                     setUser(data)
                     alert(`Welcome back ${data[0].firstname}!`)
+                    navigate('/myprofile')
                 }
             })
     }
