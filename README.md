@@ -55,3 +55,11 @@ Run the following command: npm run startfrontend
 This starts the frontend react app.
 
 
+Using the Site
+--------------------------------
+Visitors to the site can browse all items, and by clicking on an individual item they can see all details about it.  Inventory Managers can login using their username and password.  They will be able to browse all items, and by clicking on an individual item they can see all details about it.  If the item belongs to the user, options to update or delete the item will appear on the details page.  In addition, each user has a profile page that displays their information, items that belong to them, and allows them to add items.  Visitors can become Inventory Managers by clicking the signup button, filling in all requested information, and submitting it to the site.  They will then be prompted to login.
+
+Known Issues
+--------------------------------
+
+There is very little input sanitization.  An error may occur if an item is edited and one of the values is not filled in.  Duplicate users may be allowed.  They will have different IDs, but if the username and password are the same there is no good way for them to login to separate accounts.
