@@ -13,7 +13,7 @@
 5   As an inventory manager I want to be able to see any individual item I have added. ++complete
         The full item information should be displayed.
 
-6   As an inventory manager I want to be able to edit an item so that I can fix any mistakes I made creating it. -needs work
+6   As an inventory manager I want to be able to edit an item so that I can fix any mistakes I made creating it. ++complete
         When the user toggles edit mode, the page remains the same and the fields become editable.
 
 7   As an inventory manager I want to be able to delete an item so that I can remove any unwanted content. ++complete

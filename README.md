@@ -11,7 +11,7 @@ Requirements
  - Google Chrome Browser -- https://www.google.com/chrome/
  - Ubuntu (or similar) OS -- https://learn.microsoft.com/en-us/windows/wsl/install
  - Docker -- https://docs.docker.com/get-docker/
- - Make sure nothing is running on ports localhost:3000, localhost:8080, and localhost:5432 
+ - Make sure nothing is running on ports localhost:3000, localhost:8080, and localhost:5432
 
 Installation & First Run
 --------------------------------
@@ -58,6 +58,12 @@ This starts the frontend react app.
 Using the Site
 --------------------------------
 Visitors to the site can browse all items, and by clicking on an individual item they can see all details about it.  Inventory Managers can login using their username and password.  They will be able to browse all items, and by clicking on an individual item they can see all details about it.  If the item belongs to the user, options to update or delete the item will appear on the details page.  In addition, each user has a profile page that displays their information, items that belong to them, and allows them to add items.  Visitors can become Inventory Managers by clicking the signup button, filling in all requested information, and submitting it to the site.  They will then be prompted to login.
+
+New Inventory Manager accounts can be created, and all seeded Inventory Manager accounts can be logged into as well.  Provided is an Inventory Manager account chosen at random from the seed data:
+
+{"firstname":"Liza","lastname":"Jenkinson","username":"ljenkinson7y","password":"CwH9CboA"}
+
+The account can be logged into with the username ljenkinson7y and password CwH9CboA
 
 Known Issues
 --------------------------------

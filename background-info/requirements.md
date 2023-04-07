@@ -14,4 +14,4 @@
         +complete
 
 6   You should use the following stories to build out the functionality of your app
-        -incomplete
+        +complete

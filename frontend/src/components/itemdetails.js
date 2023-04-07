@@ -12,7 +12,7 @@ function ItemDetails() {
     let editButton = '';
     let deleteButton = '';
     let name = <> <h3> {detailItem.itemname} </h3> <br></br> </>;
-    let descriptiondiv = <> <div> {detailItem.description} </div> <br></br> </>;
+    let descriptiondiv = <> <div id='bodytext'> {detailItem.description} </div> <br></br> </>;
     let stock = <> <div> In Stock: {detailItem.quantity} </div> <br></br> </>;
     let itemid = <> <div>Product ID: {detailItem.id}</div> <br></br> </>;
     let id = <> <div>Inventory Manager ID: {detailItem.userid}</div> <br></br> </>;
@@ -26,7 +26,7 @@ function ItemDetails() {
 
     if (editing) {
         name = <> <h3> Name: <input type='text' placeholder={detailItem.itemname} onChange={(e) => setItemName(e.target.value)} /> </h3> <br></br> </>;
-        descriptiondiv = <> <div> Description: <input type='text' placeholder={detailItem.description} onChange={(e) => setDescription(e.target.value)} /> </div> <br></br> </>;
+        descriptiondiv = <> <div id='bodytext'> Description: <input type='text' placeholder={detailItem.description} onChange={(e) => setDescription(e.target.value)} /> </div> <br></br> </>;
         stock = <> <div> Quantity: <input type='number' placeholder={detailItem.quantity} onChange={(e) => setQuantity(e.target.value)} /> </div> <br></br> </>;
         id = '';
         itemid = '';
