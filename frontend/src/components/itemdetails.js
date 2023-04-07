@@ -31,7 +31,7 @@ function ItemDetails() {
         id = '';
         itemid = '';
 
-        editButton = <button onClick={() => [setDetailItem({id: detailItem.id, userid: detailItem.userid, itemname: itemname, description: description, quantity: quantity}), updateItem(), setEditiing(false)]}>Save</button>;
+        editButton = <button onClick={() => updateItem()}>Save</button>;
         deleteButton = '';
     }
 
@@ -50,17 +50,23 @@ function ItemDetails() {
             .then(navigate('/myprofile'))
     }
 
-    function updateItem() {
-        // let updatedItem = { id: detailItem.id, userid: detailItem.userid, itemname: itemname, description: description, quantity: quantity };
+   async function updateItem() {
+    let newitemlist = items.filter(item => item.id !== detailItem.id);
+    let updatedItem = { id: detailItem.id, userid: detailItem.userid, itemname: itemname, description: description, quantity: quantity };
+    setItems(newitemlist);
+    setItems((items) => [...items, updatedItem])
+
+        await setDetailItem(updatedItem)
         console.log('detail item: ', detailItem)
 
-        fetch('http://localhost:8080/itemdetails', {
+      await fetch('http://localhost:8080/itemdetails', {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(detailItem)
+            body: JSON.stringify(updatedItem)
         })
         // .then(alert(`Item updated!`))
         // .then(navigate('/itemdetails'))
+        setEditiing(false);
     }
 
 
