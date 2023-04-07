@@ -104,6 +104,13 @@
   align-items: center;
 }
 
-.button {
-  border-radius: 20px;
+button {
+  border-radius: 6px;
+  background-color: rgb(25, 17, 44);
+  color:blanchedalmond;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+button:hover{
+  background-color: rgb(23, 47, 133);
 }
