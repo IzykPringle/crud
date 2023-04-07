@@ -27,7 +27,7 @@ function ItemDetails() {
     if (editing) {
         name = <> <h3> Name: <input type='text' placeholder={detailItem.itemname} onChange={(e) => setItemName(e.target.value)} /> </h3> <br></br> </>;
         descriptiondiv = <> <div> Description: <input type='text' placeholder={detailItem.description} onChange={(e) => setDescription(e.target.value)} /> </div> <br></br> </>;
-        stock = <> <div> Quantity: <input type='text' placeholder={detailItem.quantity} onChange={(e) => setQuantity(e.target.value)} /> </div> <br></br> </>;
+        stock = <> <div> Quantity: <input type='number' placeholder={detailItem.quantity} onChange={(e) => setQuantity(e.target.value)} /> </div> <br></br> </>;
         id = '';
         itemid = '';
 
@@ -51,6 +51,10 @@ function ItemDetails() {
     }
 
    async function updateItem() {
+    if (itemname.length == undefined || description.length == undefined || quantity.length == undefined) {
+        alert('please fill in all values')
+        return
+    }
     let newitemlist = items.filter(item => item.id !== detailItem.id);
     let updatedItem = { id: detailItem.id, userid: detailItem.userid, itemname: itemname, description: description, quantity: quantity };
     setItems(newitemlist);
