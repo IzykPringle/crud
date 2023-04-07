@@ -24,6 +24,10 @@ function Header() {
 
 
     function login() {
+        if (username == undefined || password == undefined) {
+            alert('username or password is incorrect')
+            return;
+        }
         let user = { username: username, password: password };
         fetch('http://localhost:8080/login', {
             method: 'POST',

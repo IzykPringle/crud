@@ -26,6 +26,8 @@ useEffect(() => {
   console.log(items)
 }, [])
 
+console.log(items)
+
 if (loggedIn) {
   profileRoute = <Route path='/myprofile' element={<Profile/>}/>;
   signupRoute = '';
@@ -33,7 +35,7 @@ if (loggedIn) {
 
   return (
     <>
-    <appContext.Provider value={{loggedIn, setLoggedIn, items, user, setUser, detailItem, setDetailItem}}>
+    <appContext.Provider value={{loggedIn, setLoggedIn, items, setItems, user, setUser, detailItem, setDetailItem}}>
     <Header/>
     <Routes>
 {signupRoute}

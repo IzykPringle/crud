@@ -1,14 +1,17 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { appContext } from '../App';
 
 function Profile() {
     let navigate = useNavigate();
-    const { items, user, setDetailItem, setItems } = useContext(appContext);
+    const { items, setItems, user, detailItem, setDetailItem } = useContext(appContext);
     const [description, setDescription] = useState();
     const [itemname, setItemName] = useState();
     const [quantity, setQuantity] = useState();
-    let userItems = items.filter(item => item.userid == user[0].id)
+
+
+
+        let userItems = items.filter(item => item.userid == user[0].id);
 
 
     function addItem() {
@@ -20,7 +23,12 @@ function Profile() {
         })
             .then(alert(`New item added!`))
             .then(res => res.json())
-  .then(data => setItems(...items, data))
+            .then(data => {
+                newItem.id = data[0].id;
+                setDetailItem(newItem);
+                setItems(detailItem);
+                navigate('/myprofile');
+            })
     }
 
 
@@ -38,11 +46,17 @@ function Profile() {
                 </div>
                 <div id='myitems'> My Items:
                     <div id="itemcontainer">
-                        {userItems.length !== 0 ? userItems.map((item) => <div id="itembox" key={item.id} onClick={() => [setDetailItem(item), navigate('/itemdetails')]}>
+                        {userItems.length !== 0 ? userItems.map((item) => 
+                        <div id="itembox" key={item.id} onClick={() => [setDetailItem(item), navigate('/itemdetails')]}>
                             <div> {item.itemname} </div> <br></br>
                             <div> {item.description.length > 100 ? item.description.substring(0, 100) + '...' : item.description} </div> <br></br>
                             <div> In Stock: {item.quantity} </div>
-                        </div>) : 'You do not have any items'}
+                        </div>) : userItems.map((item) => 
+                        <div id="itembox" key={item.id} onClick={() => [setDetailItem(item), navigate('/itemdetails')]}>
+                            <div> {item.itemname} </div> <br></br>
+                            <div> {item.description.length > 100 ? item.description.substring(0, 100) + '...' : item.description} </div> <br></br>
+                            <div> In Stock: {item.quantity} </div>
+                        </div>)}
                     </div>
                 </div>
                 <div id='newitemwrapper'>
