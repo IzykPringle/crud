@@ -53,11 +53,7 @@ function Header() {
         <>
             <div id='headercontainer'>
                 <div>
-                    <div id='homebutton'> <button onClick={() => navigate('/')}>Home</button> </div> <br></br>
-                    <div id='search'>
-                        <input type='search' />
-                        <button>Search</button>
-                    </div>
+                    <div id='homebutton'> <button onClick={() => navigate('/')}>Home</button> </div>
                 </div>
                 <div id='logo'>
                     <h2 onClick={() => navigate('/')}>Grocery Stock Galore!</h2>

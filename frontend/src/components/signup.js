@@ -1,7 +1,9 @@
 import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { appContext } from '../App';
 
 function SignUp() {
+    let navigate = useNavigate();
     const [fname, setFName] = useState([]);
     const [lname, setLName] = useState([]);
     const [uname, setUName] = useState([]);
@@ -14,7 +16,8 @@ function SignUp() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newUser)
         })
-            .then(alert(`New User Created! Welcome ${fname}!`))
+            .then(alert(`New user was successfully created! Please login`))
+            navigate('/')
     }
     return (
         <>

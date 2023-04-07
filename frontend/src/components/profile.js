@@ -40,9 +40,6 @@ function Profile() {
                     <div> Last Name: {user[0].lastname} </div>
                     <div>   Username: {user[0].username} </div>
                     <div>User ID: {user[0].id}</div>
-                    <button>Edit Profile</button>
-                    <button>Change Password</button>
-                    <button>Delete Account</button>
                 </div>
                 <div id='myitems'> <h3>My Items:</h3>
                     <div id="itemcontainer">
@@ -51,12 +48,7 @@ function Profile() {
                                 <div> {item.itemname} </div> <br></br>
                                 <div> {item.description.length > 100 ? item.description.substring(0, 100) + '...' : item.description} </div> <br></br>
                                 <div> In Stock: {item.quantity} </div>
-                            </div>) : userItems.map((item) =>
-                                <div id="itembox" key={item.id} onClick={() => [setDetailItem(item), navigate('/itemdetails')]}>
-                                    <div> {item.itemname} </div> <br></br>
-                                    <div> {item.description.length > 100 ? item.description.substring(0, 100) + '...' : item.description} </div> <br></br>
-                                    <div> In Stock: {item.quantity} </div>
-                                </div>)}
+                            </div>) : 'You do not have any items yet! Please add a new item (located on the left side of the screen) to get started!'}
                     </div>
                 </div>
                 <div id='newitemwrapper'>
