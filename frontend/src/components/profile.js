@@ -11,12 +11,13 @@ function Profile() {
 
 
 
-        let userItems = items.filter(item => item.userid == user[0].id);
+    let userItems = items.filter(item => item.userid == user[0].id);
+    let addeditem = {};
 
 
-    function addItem() {
+    async function addItem() {
         let newItem = { userid: user[0].id, itemname: itemname, description: description, quantity: quantity };
-        fetch('http://localhost:8080/additem', {
+        addeditem = await fetch('http://localhost:8080/additem', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newItem)
@@ -25,10 +26,9 @@ function Profile() {
             .then(res => res.json())
             .then(data => {
                 newItem.id = data[0].id;
-                setDetailItem(newItem);
-                setItems(detailItem);
-                navigate('/myprofile');
+                return newItem;
             })
+            setItems((items) => [...items, addeditem])
     }
 
 
@@ -46,17 +46,17 @@ function Profile() {
                 </div>
                 <div id='myitems'> My Items:
                     <div id="itemcontainer">
-                        {userItems.length !== 0 ? userItems.map((item) => 
-                        <div id="itembox" key={item.id} onClick={() => [setDetailItem(item), navigate('/itemdetails')]}>
-                            <div> {item.itemname} </div> <br></br>
-                            <div> {item.description.length > 100 ? item.description.substring(0, 100) + '...' : item.description} </div> <br></br>
-                            <div> In Stock: {item.quantity} </div>
-                        </div>) : userItems.map((item) => 
-                        <div id="itembox" key={item.id} onClick={() => [setDetailItem(item), navigate('/itemdetails')]}>
-                            <div> {item.itemname} </div> <br></br>
-                            <div> {item.description.length > 100 ? item.description.substring(0, 100) + '...' : item.description} </div> <br></br>
-                            <div> In Stock: {item.quantity} </div>
-                        </div>)}
+                        {userItems.length !== 0 ? userItems.map((item) =>
+                            <div id="itembox" key={item.id} onClick={() => [setDetailItem(item), navigate('/itemdetails')]}>
+                                <div> {item.itemname} </div> <br></br>
+                                <div> {item.description.length > 100 ? item.description.substring(0, 100) + '...' : item.description} </div> <br></br>
+                                <div> In Stock: {item.quantity} </div>
+                            </div>) : userItems.map((item) =>
+                                <div id="itembox" key={item.id} onClick={() => [setDetailItem(item), navigate('/itemdetails')]}>
+                                    <div> {item.itemname} </div> <br></br>
+                                    <div> {item.description.length > 100 ? item.description.substring(0, 100) + '...' : item.description} </div> <br></br>
+                                    <div> In Stock: {item.quantity} </div>
+                                </div>)}
                     </div>
                 </div>
                 <div id='newitemwrapper'>

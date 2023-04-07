@@ -16,7 +16,6 @@ function ItemDetails() {
     let stock = <> <div> In Stock: {detailItem.quantity} </div> <br></br> </>;
     let itemid = <> <div>Product ID: {detailItem.id}</div> <br></br> </>;
     let id = <> <div>Inventory Manager ID: {detailItem.userid}</div> <br></br> </>;
-    console.log('detail item: ', detailItem)
 
     if (loggedIn) {
         if (detailItem.userid === user[0].id) {
@@ -32,7 +31,7 @@ function ItemDetails() {
         id = '';
         itemid = '';
 
-        editButton = <button onClick={() => [updateItem(), setEditiing(false)]}>Save</button>;
+        editButton = <button onClick={() => [setDetailItem({id: detailItem.id, userid: detailItem.userid, itemname: itemname, description: description, quantity: quantity}), updateItem(), setEditiing(false)]}>Save</button>;
         deleteButton = '';
     }
 
@@ -52,7 +51,8 @@ function ItemDetails() {
     }
 
     function updateItem() {
-        setDetailItem({ id: detailItem.id, userid: detailItem.userid, itemname: itemname, description: description, quantity: quantity })
+        // let updatedItem = { id: detailItem.id, userid: detailItem.userid, itemname: itemname, description: description, quantity: quantity };
+        console.log('detail item: ', detailItem)
 
         fetch('http://localhost:8080/itemdetails', {
             method: 'PATCH',
