@@ -44,7 +44,7 @@ function Profile() {
                     <button>Change Password</button>
                     <button>Delete Account</button>
                 </div>
-                <div id='myitems'> My Items:
+                <div id='myitems'> <h3>My Items:</h3>
                     <div id="itemcontainer">
                         {userItems.length !== 0 ? userItems.map((item) =>
                             <div id="itembox" key={item.id} onClick={() => [setDetailItem(item), navigate('/itemdetails')]}>
