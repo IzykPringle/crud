@@ -21,6 +21,10 @@ Step 0: Install postgres Docker Image
 
 It is assumed that a postgresql docker image with the name "postgres", user "postgres", and password "docker" is present on the user's system.  If not, please install it via the following commands:
 
+docker pull postgres
+mkdir -p $HOME/docker/volumes/postgres
+docker run --rm --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data postgres
+
 Step 1: Install Dependencies
 
 In a terminal, navigate to the /crud folder.
