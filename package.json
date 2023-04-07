@@ -1,6 +1,9 @@
 {
     "scripts": {
         "startfrontend": "cd frontend && npm start",
-        "startbackend": "nodemon ./backend/server.js"
+        "startbackend": "nodemon ./backend/server.js",
+        "backendspinup": "cd backend && npm run backendspinup",
+        "dependencyinstall": "cd frontend && npm i && cd ../backend && npm i"
+
     }
 }
