@@ -12,7 +12,7 @@ function ItemDetails() {
     let editButton = '';
     let deleteButton = '';
     let name = <> <h3> {detailItem.itemname} </h3> <br></br> </>;
-    let descriptiondiv = <> <div> {detailItem.description.length > 100 ? detailItem.description.substring(0, 100) + '...' : detailItem.description} </div> <br></br> </>;
+    let descriptiondiv = <> <div> {detailItem.description} </div> <br></br> </>;
     let stock = <> <div> In Stock: {detailItem.quantity} </div> <br></br> </>;
     let itemid = <> <div>Product ID: {detailItem.id}</div> <br></br> </>;
     let id = <> <div>Inventory Manager ID: {detailItem.userid}</div> <br></br> </>;
